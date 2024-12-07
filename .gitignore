@@ -1,0 +1,11 @@
+﻿################################################################################
+# 這個 .gitignore 檔案由 Microsoft(R) Visual Studio 自動建立。
+################################################################################
+
+/.vs/Net8WebApiSample
+/Data/bin/Debug/net8.0
+/Data/obj
+/Net8WebApiSample/bin/Debug/net8.0
+/Net8WebApiSample/obj
+/Service/bin/Debug/net8.0
+/Service/obj
