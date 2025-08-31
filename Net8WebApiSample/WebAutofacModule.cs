@@ -7,7 +7,8 @@ namespace Web
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<SampleController>().PropertiesAutowired();
+            builder.RegisterAssemblyTypes(typeof(Program).Assembly)
+                .Where(t => t.Name.EndsWith("Controller")).PropertiesAutowired();
         }
     }
 }
