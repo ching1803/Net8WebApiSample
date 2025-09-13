@@ -56,7 +56,10 @@ namespace Web
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            builder.Services.AddControllers().AddControllersAsServices();
+            builder.Services.AddControllers(options =>
+            {
+                options.Filters.Add<Filters.GlobalExceptionFilter>();
+            }).AddControllersAsServices();
 
             var app = builder.Build();
 
