@@ -18,10 +18,7 @@ namespace Web.Filters
                 _ => (int)HttpStatusCode.InternalServerError
             };
 
-            var response = new ExceptionResponse
-            {
-                Message = context.Exception.Message
-            };
+            var response = ApiResponse.Fail(context.Exception.Message);
 
             context.Result = new ObjectResult(response)
             {

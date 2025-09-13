@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service;
+using Web.Models;
 
 namespace Web.Controller
 {
@@ -14,20 +15,20 @@ namespace Web.Controller
         public IActionResult Get()
         {
             SampleService.Test();
-            return Ok();
+            return Ok(ApiResponse.Success("test OK"));
         }
 
         [Authorize]
         [HttpGet("auth")]
         public IActionResult GetAuth()
         {
-            return Ok("You are authenticated");
+            return Ok(ApiResponse<string>.Success("You are authenticated", "test auth OK"));
         }
 
         [HttpGet("error")]
         public IActionResult GetError()
         {
-            throw new Exception("這是一個測試例外");
+            throw new Exception("test Exception");
         }
     }
 }

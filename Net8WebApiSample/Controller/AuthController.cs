@@ -46,10 +46,13 @@ namespace Web.Controller
                 var securityToken = tokenHandler.CreateToken(tokenDescriptor);
                 var accessToken = tokenHandler.WriteToken(securityToken);
 
-                return Ok(new LoginResponseModel
+                var response = new LoginResponseModel
                 {
                     AccessToken = accessToken
-                });
+                };
+
+                return Ok(ApiResponse<LoginResponseModel>.Success(response, "login Success"));
+
             }
         }
     }
